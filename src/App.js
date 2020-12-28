@@ -54,6 +54,7 @@ const Subheader = styled.p`
 `;
 
 const Title = styled.h1`
+  text-align: center;
   font-family: "Poppins", sans-serif;
   font-size: 3rem;
   font-weight: 100;
