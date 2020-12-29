@@ -166,6 +166,7 @@ const SearchResults = styled.ul`
   display: block;
   background: white;
   width: 100%;
+  border-radius: inherit;
 `;
 
 const Divider = styled.div`
