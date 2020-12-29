@@ -44,7 +44,7 @@ const Wrapper = styled.div`
   align-items: center;
   border: 1px solid rgba(145, 145, 145, 0.5);
   padding: 1.25rem 1rem;
-  box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.69);
+  box-shadow: 0px 4px 5px 0px rgba(145, 145, 145, 0.7);
 `;
 
 const Left = styled.div`
