@@ -6,13 +6,12 @@ This was a quick project to familiarize myself with creating typeahead search ba
 
 Features include:
 
-- Persistent search bar
+- Persistent and Expandable search bar
 - Bolded untyped characters in the suggested results
 - Autocomplete searchable items on click of a result
 - Focused state changes icon to clear button that clears field
 
 Stuff i'd want to add:
 
-- Expandable Search bar (maybe on nav?)
 - Tap arrow to unfocus
 - Keyboard navigation of results
