@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { GlobalStyles } from "./components/GlobalStyles";
 import SearchBar from "./components/SearchBar";
+import { isBrowser, isMobile } from "react-device-detect";
 import { fruits } from "./data";
 
 function App() {
@@ -9,11 +10,21 @@ function App() {
     <>
       <Wrapper>
         <Header>
-          <Title>Simple Typeahead Bar</Title>
-          <Subheader>Think of a fruit, any fruit 😀</Subheader>
+          {isBrowser && (
+            <>
+              <Title>Simple Typeahead Bar</Title>
+              <Subheader>Think of a fruit, any fruit 😀</Subheader>
+            </>
+          )}
           <SearchBar data={fruits} />
         </Header>
         <Footer>
+          {isMobile && (
+            <>
+              <Title>Simple Typeahead Bar</Title>
+              <Subheader>Think of a fruit, any fruit 😀</Subheader>
+            </>
+          )}
           Made by
           <a
             href="https://giathinhnguyen.com/"
@@ -62,9 +73,11 @@ const Title = styled.h1`
 `;
 
 const Footer = styled.div`
-  margin: 10vh;
+  width: 95%;
+  margin: 5vh 0;
   font-family: "Poppins", sans-serif;
   font-weight: 400;
+  text-align: center;
 
   & a {
     text-decoration: none;
