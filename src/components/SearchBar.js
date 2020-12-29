@@ -2,11 +2,11 @@ import React from "react";
 import styled from "styled-components";
 import { FiSearch, FiArrowLeft } from "react-icons/fi";
 
-const SearchBar = ({ data }) => {
+const SearchBar = ({ data, show, handleShow }) => {
   const SUGGESTIONS = data;
   const [value, setValue] = React.useState("");
   const [isVisible, setIsVisible] = React.useState(false);
-  const [isTyping, setIsTyping] = React.useState(false);
+  const [isTyping, setIsTyping] = React.useState(show);
   const [suggestionIndex, setSuggestionIndex] = React.useState(0);
 
   let matchedSuggestions = SUGGESTIONS.filter((suggestion) =>
@@ -33,6 +33,10 @@ const SearchBar = ({ data }) => {
     setValue("");
     setIsVisible(false);
     setIsTyping(false);
+
+    if (show) {
+      handleShow();
+    }
   }
 
   function handleSubmit(event) {
@@ -107,7 +111,7 @@ const Wrapper = styled.div`
 const SearchField = styled.div`
   display: flex;
   align-items: center;
-  width: 98vw;
+  width: 95vw;
   padding: 0.5rem 1rem;
 
   @media (min-width: 1200px) {
