@@ -107,6 +107,7 @@ const Wrapper = styled.div`
   justify-content: flex-start;
   align-items: center;
   height: auto;
+  /* padding: 0.25rem; */
 `;
 
 const SearchField = styled.div`

@@ -51,7 +51,9 @@ const Left = styled.div`
   flex: 2;
   display: flex;
   align-items: center;
-  /* border: 5px solid red; */
+  /* border: 1px solid red; */
+  padding: 0.5rem 0;
+  height: 3.25rem;
 
   & h1 {
     margin-left: 2rem;
@@ -71,7 +73,9 @@ const Right = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  /* border: 5px solid green; */
+  padding: 0.5rem 0;
+  height: 3.25rem;
+  /* border: 1px solid green; */
 
   & button {
     border: none;

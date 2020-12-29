@@ -60,7 +60,7 @@ const Button = styled.button`
   height: auto;
   font-size: 1.3rem;
   padding: 0.5rem 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
   background-color: hsla(200deg, 100%, 65%, 0.7);
 
   border: 1px solid hsla(200deg, 100%, 65%, 0.7);
