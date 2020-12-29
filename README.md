@@ -9,6 +9,7 @@ Features include:
 - Persistent search bar
 - Bolded untyped characters in the suggested results
 - Autocomplete searchable items on click of a result
+- Focused state changes icon to clear button that clears field
 
 Stuff i'd want to add:
 

@@ -1,11 +1,12 @@
 import React from "react";
 import styled from "styled-components";
-import { FiSearch } from "react-icons/fi";
+import { FiSearch, FiArrowLeft } from "react-icons/fi";
 
 const SearchBar = ({ data }) => {
   const SUGGESTIONS = data;
   const [value, setValue] = React.useState("");
-  const [isVisible, setIsVisible] = React.useState(true);
+  const [isVisible, setIsVisible] = React.useState(false);
+  const [isTyping, setIsTyping] = React.useState(false);
   const [suggestionIndex, setSuggestionIndex] = React.useState(0);
 
   let matchedSuggestions = SUGGESTIONS.filter((suggestion) =>
@@ -16,6 +17,24 @@ const SearchBar = ({ data }) => {
   let showSuggestions =
     matchedSuggestions.length > 0 && isVisible && value.length > 0;
 
+  function handleChange(ev) {
+    setValue(ev.target.value);
+    if (ev.target.value.length > 0) {
+      setIsVisible(true);
+      setIsTyping(true);
+    } else {
+      setIsVisible(false);
+      setIsTyping(false);
+    }
+  }
+
+  function handleClear(ev) {
+    ev.preventDefault();
+    setValue("");
+    setIsVisible(false);
+    setIsTyping(false);
+  }
+
   function handleSubmit(event) {
     event.preventDefault();
     alert(`Searching for... ${value}`);
@@ -25,13 +44,20 @@ const SearchBar = ({ data }) => {
     <Wrapper>
       <Form onSubmit={handleSubmit}>
         <SearchField>
-          <Button type="submit">
-            <FiSearch size={22} color="lightgrey" />
-          </Button>
+          {!isTyping ? (
+            <Button type="submit">
+              <FiSearch size={24} color="lightgrey" />
+            </Button>
+          ) : (
+            <Button type="button" onClick={(ev) => handleClear(ev)}>
+              <FiArrowLeft size={24} color="lightgrey" />
+            </Button>
+          )}
+
           <Input
             type="search"
             placeholder="Search..."
-            onChange={(ev) => setValue(ev.target.value)}
+            onChange={(ev) => handleChange(ev)}
             value={value}
             onFocus={() => setIsVisible(true)}
             isMatching={showSuggestions}
@@ -81,7 +107,12 @@ const Wrapper = styled.div`
 const SearchField = styled.div`
   display: flex;
   align-items: center;
-  width: 20rem;
+  width: 98vw;
+  padding: 0.5rem 1rem;
+
+  @media (min-width: 1200px) {
+    width: 30rem;
+  }
 `;
 
 const Form = styled.form`
@@ -89,7 +120,7 @@ const Form = styled.form`
   flex-flow: column nowrap;
   align-items: center;
   background: #ffffff;
-  padding: 0.5rem 1rem;
+
   outline: none;
   border: 1px solid rgba(145, 145, 145, 0.5);
   border-radius: 15px;
@@ -100,6 +131,9 @@ const Form = styled.form`
 `;
 
 const Button = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: none;
   outline: none;
   background: transparent;
@@ -111,6 +145,7 @@ const Input = styled.input`
   line-height: 1.6;
   outline: none;
   border: none;
+  width: 100%;
   /* margin-left: 0.5rem; */
   &::placeholder {
     opacity: 0.5;
