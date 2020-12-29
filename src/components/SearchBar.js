@@ -36,6 +36,7 @@ const SearchBar = ({ data, show, handleShow }) => {
 
     if (show) {
       handleShow();
+      setIsTyping(false);
     }
   }
 
@@ -111,7 +112,7 @@ const Wrapper = styled.div`
 const SearchField = styled.div`
   display: flex;
   align-items: center;
-  width: 95vw;
+  width: 100%;
   padding: 0.5rem 1rem;
 
   @media (min-width: 1200px) {
