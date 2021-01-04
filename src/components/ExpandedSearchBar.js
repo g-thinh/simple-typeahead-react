@@ -14,7 +14,9 @@ const ExpandedSearchBar = () => {
   return (
     <Wrapper>
       {showBar ? (
-        <SearchBar data={fruits} show handleShow={handleShow} />
+        <BarContainer>
+          <SearchBar data={fruits} show handleShow={handleShow} />
+        </BarContainer>
       ) : (
         <>
           <Left>
@@ -45,6 +47,13 @@ const Wrapper = styled.div`
   border: 1px solid rgba(145, 145, 145, 0.5);
   padding: 1.25rem 1rem;
   box-shadow: 0px 4px 5px 0px rgba(145, 145, 145, 0.7);
+`;
+
+const BarContainer = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
 `;
 
 const Left = styled.div`
