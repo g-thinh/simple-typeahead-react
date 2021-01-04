@@ -113,12 +113,14 @@ const Wrapper = styled.div`
 const SearchField = styled.div`
   display: flex;
   align-items: center;
+
   width: 100%;
+
   padding: 0.5rem 1rem;
 
-  @media (min-width: 1200px) {
+  /* @media (min-width: 1200px) {
     width: 30rem;
-  }
+  } */
 `;
 
 const Form = styled.form`
@@ -134,6 +136,9 @@ const Form = styled.form`
   :focus-within {
     box-shadow: 1px 1px 2px 1px rgba(145, 145, 145, 0.7);
   }
+
+  /* border: 3px solid red; */
+  width: 95vw;
 `;
 
 const Button = styled.button`
